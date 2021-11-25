@@ -11,7 +11,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        calcPlus(num1: 10, num2: 20)
+        
+    }
+    
+    func calcPlus(num1: Int, num2: Int) -> Int {
+        return num1 + num2
     }
 
 
