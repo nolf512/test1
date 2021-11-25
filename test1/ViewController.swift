@@ -10,17 +10,19 @@ import UIKit
 class ViewController: UIViewController {
     
     var label = UILabel()
+    var button = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configureLabel()
-        calcPlus(num1: 10, num2: 20)
+        configureButton()
         
     }
     
-    func calcPlus(num1: Int, num2: Int) -> Int {
-        return num1 + num2
+    @objc
+    func calcPlus() {
+        print("plus calc")
     }
     
     func configureLabel() {
@@ -28,6 +30,15 @@ class ViewController: UIViewController {
         label.text = "Hello"
         setLabel()
     }
+    
+    func configureButton() {
+        view.addSubview(button)
+        button.setTitle("plus", for: .normal)
+        button.setTitleColor(.blue, for: .normal)
+        button.addTarget(self, action: #selector(calcPlus), for: .touchUpInside)
+        setButton()
+    }
+    
 
 
     func setLabel() {
@@ -35,5 +46,12 @@ class ViewController: UIViewController {
         label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
+    
+    func setButton() {
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        button.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 50).isActive = true
+    }
+    
 }
 
